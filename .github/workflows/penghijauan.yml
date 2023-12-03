@@ -19,6 +19,7 @@ jobs:
         ./green -o README.md
     - name: commit and push
       run: |
+        git add .
         greens=("🌲" "🌳" "🌴" "🎄" "💚")
         git config user.name "${GITHUB_ACTOR}"
         git config user.email "akunhantusaya@github.com"

@@ -1,0 +1,26 @@
+name: penghijauan
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */4 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: update or create README.md
+      run: |
+        ./green -o README.md
+    - name: commit and push
+      run: |
+        greens=("🌲" "🌳" "🌴" "🎄" "💚")
+        git config user.name "${GITHUB_ACTOR}"
+        git config user.email "akunhantusaya@github.com"
+        git commit -am "penghijauan ${greens[$RANDOM % ${#greens[@]}]}"
+        git push

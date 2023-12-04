@@ -3,7 +3,7 @@ name: penghijauan
 on:
   workflow_dispatch:
   schedule:
-    - cron: ${FREQUENCY}
+    - cron: ${COMMIT_FREQUENCY}
 
 permissions:
   contents: write

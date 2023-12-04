@@ -3,7 +3,7 @@ name: penghijauan
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 */4 * * *'
+    - cron: ${FREQUENCY}
 
 permissions:
   contents: write
@@ -22,6 +22,6 @@ jobs:
         git add .
         greens=("🌲" "🌳" "🌴" "🎄" "💚")
         git config user.name "${GITHUB_ACTOR}"
-        git config user.email "akunhantusaya@github.com"
+        git config user.email "${GITHUB_EMAIL}"
         git commit -am "penghijauan ${greens[$RANDOM % ${#greens[@]}]}"
         git push

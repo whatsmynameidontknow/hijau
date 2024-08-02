@@ -4,13 +4,13 @@ on:
   schedule:
     - cron: "0 */4 * * *" # tiap jam
 jobs:
-  builds:
+  build:
     runs-on: ubuntu-latest
-  steps:
-  - uses: actions/checkout@v4
-  - name: commit
-    run: |
-      git config user.name "whatsmynameidontknow"
-      git config user.email "akunhantusaya@gmail.com"
-      git commit --allow-empty -m "titid"
-      git push
+    steps:
+    - uses: actions/checkout@v4
+    - name: commit
+      run: |
+        git config user.name "whatsmynameidontknow"
+        git config user.email "akunhantusaya@gmail.com"
+        git commit --allow-empty -m "titid"
+        git push

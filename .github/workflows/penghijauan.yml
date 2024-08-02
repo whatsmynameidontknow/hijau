@@ -1,27 +1,16 @@
-name: penghijauan
-
+name: titid
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 */4 * * *"
-
-permissions:
-  contents: write
-
+    - cron: "0 */4 * * *" # tiap jam
 jobs:
-  build:
+  builds:
     runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v3
-    - name: update or create README.md
-      run: |
-        ./green -o README.md
-    - name: commit and push
-      run: |
-        git add .
-        greens=("🌲" "🌳" "🌴" "🎄" "💚")
-        git config user.name "${GITHUB_ACTOR}"
-        git config user.email "44807964+whatsmynameidontknow@users.noreply.github.com"
-        git commit -am "penghijauan ${greens[$RANDOM % ${#greens[@]}]}"
-        git push
+  steps:
+  - uses: actions/checkout@v4
+  - name: commit
+    run: |
+      git config user.name "whatsmynameidontknow"
+      git config user.email "akunhantusaya@gmail.com"
+      git commit --allow-empty -m "titid"
+      git push

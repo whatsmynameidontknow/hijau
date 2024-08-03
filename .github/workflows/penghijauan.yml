@@ -1,19 +1,23 @@
-name: hijau
+name: penghijauan
+
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 */4 * * *"
-permissions: 
+    - cron: '0 */4 * * *'
+
+permissions:
   contents: write
+
 jobs:
-  build:
+  commit:
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v4
-    - name: commit
+    - name: commit and push
       run: |
         greens=("🌲" "🌳" "🌴" "🎄" "💚")
-        git config user.name "whatsmynameidontknow"
+        git config user.name "${GITHUB_ACTOR}"
         git config user.email "akunhantusaya@gmail.com"
-        git commit --allow-empty -m "penghijauan ${greens[$RANDOM % ${#greens[@]}]}" -m "Updated on `TZ=Asia/Jakarta date +'%A, %d %B %Y at %H:%M %Z'`"
+        git commit --allow-empty -m "penghijauan ${greens[$RANDOM % ${#greens[@]}]}" -m "🕰️ Updated on`TZ=Asia/Jakarta date +'%A, %d %B %Y at %H:%M %Z'`"
         git push

@@ -19,5 +19,5 @@ jobs:
         greens=("🌲" "🌳" "🌴" "🎄" "💚")
         git config user.name "${GITHUB_ACTOR}"
         git config user.email "akunhantusaya@gmail.com"
-        git commit --allow-empty -m "penghijauan ${greens[$RANDOM % ${#greens[@]}]}" -m "🕰️ Updated on`TZ=Asia/Jakarta date +'%A, %d %B %Y at %H:%M %Z'`"
+        git commit --allow-empty -m "penghijauan ${greens[$RANDOM % ${#greens[@]}]}" -m "🕰️ Updated on `TZ=Asia/Jakarta date +'%A, %d %B %Y at %H:%M %Z'`"
         git push
